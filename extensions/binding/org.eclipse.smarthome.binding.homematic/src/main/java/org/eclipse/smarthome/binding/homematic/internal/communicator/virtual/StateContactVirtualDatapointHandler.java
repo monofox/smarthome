@@ -21,7 +21,7 @@ import org.eclipse.smarthome.binding.homematic.internal.model.HmDevice;
 import org.eclipse.smarthome.binding.homematic.internal.model.HmValueType;
 
 /**
- * A virtual datapoint that converts the ENUM state of the HMIP-SWDO device to a contact.
+ * A virtual datapoint that converts the ENUM state of the HMIP-SWDO/SWDM device to a contact.
  *
  * @author Gerhard Riegler - Initial contribution
  */
@@ -58,7 +58,7 @@ public class StateContactVirtualDatapointHandler extends AbstractVirtualDatapoin
     }
 
     private boolean isApplicable(HmDevice device) {
-        return "HMIP-SWDO".equals(device.getType());
+        return "HMIP-SWDO".equals(device.getType()) || "HMIP-SWDM".equals(device.getType());
     }
 
     private Boolean convertState(Object value) {
